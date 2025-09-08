@@ -28,3 +28,8 @@ function getHumanChoice() {
         else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
     }
 getHumanChoice();
+
+// Declare the computer and user's score variables
+let humanScore = 0;
+let computerScore = 0;
+
