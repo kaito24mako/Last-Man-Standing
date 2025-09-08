@@ -2,28 +2,28 @@
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;   // Math.floor() rounds to nearest whole, and Math.random() generates number between 0-1, so +1 to convert to integer and *3 to have three choices
         if (randomNumber === 1) {
-            return "Rock";
+            return "rock";
         }
         else if (randomNumber === 2) {
-            return "Paper";
+            return "paper";
         }
         else {
-            return "Scissors";
+            return "scissors";
         }
     }
 
 // Prompt, obtain and return the user's input 
 function getHumanChoice() {
-    let userInput = prompt("Which do you choose: Rock, Paper, or Scissors?");  // user inputs their choice inside prompt 
+    let userInput = prompt("// WELCOME TO THE ARENA //\nYou will play five rounds.\nChoose your move:\nRock, Paper, or Scissors?");  // user inputs their choice inside prompt 
     userInput = userInput.toLowerCase();  // converts any input of the choices into lowercase for case-insensitivity
         if (userInput === "rock") {
-            return "Rock";
+            return "rock";
         }
         else if (userInput === "paper") {
-            return "Paper";
+            return "paper";
         }
         else if (userInput === "scissors") {
-            return "Scissors";
+            return "scissors";
         }
         else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
     }
@@ -35,32 +35,32 @@ let drawScore = 0;
 
 // The logic for one round, including scores
 function playRound(humanSelection, computerSelection) {    // parameters are later declared as values outputted from the functions getHumanChoice() and getComputerChoice()
-    if (humanSelection == "Rock" && computerSelection == "Paper") {
-        console.log("You have lost... Paper beats Rock.");
+    if (humanSelection == "rock" && computerSelection == "paper") {
+        console.log("You lost the round...");
         ++computerScore;   // increments the players' scores
     }
     else if (humanSelection == "Rock" && computerSelection == "Scissors") {
-        console.log("You have won! Rock beats Scissors.");
+        console.log("You won the round!!");
         ++humanScore;
     }
     else if (humanSelection == "Paper" && computerSelection == "Scissors") {
-        console.log("You have lost... Scissors beats Paper.");
+        console.log("You lost the round...");
         ++computerScore;
     }
     else if (humanSelection == "Paper" && computerSelection == "Rock") {
-        console.log("You have won! Paper beats Rock.");
+        console.log("You won the round!!");
         ++humanScore;
     }
     else if (humanSelection == "Scissors" && computerSelection == "Rock") {
-        console.log("You have lost... Scissors beats Rock.");
+        console.log("You lost the round...");
         ++computerScore;
     }
     else if (humanSelection == "Scissors" && computerSelection == "Paper") {
-        console.log("You have won! Scissors beats Paper.");
+        console.log("You won the round!!");
         ++humanScore;
     }
     else {
-        console.log("It is a draw...");
+        console.log("It is a draw~");
         ++drawScore;
     }
 }
