@@ -16,7 +16,7 @@ getComputerChoice();
 // Prompt, obtain and return the user's input 
 function getHumanChoice() {
     let userInput = prompt("Which do you choose: Rock, Paper, or Scissors?");
-    let userInput = userInput.toLowerCase();  
+    userInput = userInput.toLowerCase();  
         if (userInput === "rock") {
             return "Rock";
         }
@@ -28,7 +28,6 @@ function getHumanChoice() {
         }
         else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
     }
-getHumanChoice();
 
 // Declare the computer and user's score variables
 let humanScore = 0;
@@ -70,3 +69,4 @@ const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
+// Calls playRound to play 5 rounds, keeps track of scores, and declares winner
