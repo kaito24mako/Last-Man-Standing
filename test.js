@@ -36,10 +36,25 @@ let computerScore = 0;
 // Create the logic for a round
 function playRound() {
     if (humanSelection == "Rock" && computerSelection == "Paper") {
-        console.log("You have lost! Paper beats Rock.");
+        console.log("You have lost. Paper beats Rock.");
     }
     else if (humanSelection == "Rock" && computerSelection == "Scissors") {
         console.log("You have won! Rock beats Scissors.");
+    }
+    else if (humanSelection == "Paper" && computerSelection == "Scissors") {
+        console.log("You have lost. Scissors beats Paper.");
+    }
+    else if (humanSelection == "Paper" && computerSelection == "Rock") {
+        console.log("You have won! Paper beats Rock.");
+    }
+    else if (humanSelection == "Scissors" && computerSelection == "Rock") {
+        console.log("You have lost. Scissors beats Rock.");
+    }
+    else if (humanSelection == "Scissors" && computerSelection == "Paper") {
+        console.log("You have won! Scissors beats Paper.");
+    }
+    else {
+        console.log("It is a draw!");
     }
 }
 
