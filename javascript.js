@@ -35,21 +35,19 @@ let drawScore = 0;
 
 // The logic for one round, including scores
 function playRound(humanSelection, computerSelection) {    // parameters are later declared as values outputted from the functions getHumanChoice() and getComputerChoice()
-    const condition = (humanSelection == "rock" && computerSelection == "scissors") ||
-                      (humanSelection == "paper" && computerSelection == "rock") ||
-                      (humanSelection == "scissors" && computerSelection == "paper") ? 1 : (humanSelection == computerSelection) ? 2 : 0;
-                        // ^ conditional (ternary) operator that assigns truthy and falsy values to a condition, allowing if..else to be concise
-    if (condition == 1) {
+    if (humanSelection == "rock" && computerSelection == "scissors" ||
+        humanSelection == "paper" && computerSelection == "rock" ||
+        humanSelection == "scissors" && computerSelection == "paper") {
         console.log(`You won the round!!`);
         ++humanScore;   // increments the players' scores
     }
-    else if (condition == 0) {
-        console.log(`You lost the round...`);
-        ++computerScore;
-    }
-    else if (condition == 2) {
+    else if (humanSelection == computerSelection) {
         console.log("It is a draw~");
         ++drawScore;
+    }
+    else {
+        console.log(`You lost the round...`);
+        ++computerScore;
     }
 }
 
