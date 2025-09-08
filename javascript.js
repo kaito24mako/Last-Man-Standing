@@ -13,21 +13,18 @@ function getComputerChoice() {
     }
 getComputerChoice();
 
-// Obtain and return the user's input 
-
-
-
+// Prompt, obtain and return the user's input 
 function getHumanChoice() {
     let userInput = prompt("Which do you choose: Rock, Paper, or Scissors?");
-    
-    if (userInput === "Rock") {
-        return 1;
+        if (userInput === "Rock") {
+            return 1;
+        }
+        else if (userInput === "Paper") {
+            return 2;
+        }
+        else if (userInput === "Scissors") {
+            return 3;
+        }
+        else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
     }
-    else if (userInput === "Paper") {
-        return 2;
-    }
-    else {
-        return 3;
-    }
-}
-getHumanChoice()
+getHumanChoice();
