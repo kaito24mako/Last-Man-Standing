@@ -11,7 +11,6 @@ function getComputerChoice() {
             return "Scissors";
         }
     }
-getComputerChoice();
 
 // Prompt, obtain and return the user's input 
 function getHumanChoice() {
@@ -34,7 +33,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 // The logic for one round, including scores
-function playRound(humanChoice, computerChoice) {
+function playRound(humanSelection, computerSelection) {
     if (humanSelection == "Rock" && computerSelection == "Paper") {
         console.log("You have lost. Paper beats Rock.");
         console.log("Computer's Score:" + " " + ++computerScore);
@@ -64,9 +63,14 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
 // Calls playRound to play 5 rounds, keeps track of scores, and declares winner
+
+function playGame() {
+    for(let round = 1; round <= 5; round++) {   // loop makes playRound() repeat for up to 5 rounds
+        const humanSelection = getHumanChoice();   // humanSelection is the value of getHumanChoice()
+        const computerSelection = getComputerChoice();   //computerSelection is the value of getHumanChoice()
+        playRound(humanSelection, computerSelection);  // the two arguments from above allow playRound() to compare and determine the winner for the round
+    }
+}
+
+playGame();
