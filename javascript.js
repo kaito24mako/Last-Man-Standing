@@ -15,7 +15,7 @@ function getComputerChoice() {
 // Prompt, obtain and return the user's input 
 function getHumanChoice() {
     let userInput = prompt("Which do you choose: Rock, Paper, or Scissors?");  // user inputs their choice inside prompt 
-    userInput = userInput.toLowerCase();  
+    userInput = userInput.toLowerCase();  // converts any input of the choices into lowercase for case-insensitivity
         if (userInput === "rock") {
             return "Rock";
         }
@@ -28,15 +28,15 @@ function getHumanChoice() {
         else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
     }
 
-// Declare the computer and user's score variables
+// Declare the user and computer's score variables
 let humanScore = 0;
 let computerScore = 0;
 
 // The logic for one round, including scores
-function playRound(humanSelection, computerSelection) {
+function playRound(humanSelection, computerSelection) {    // parameters are later declared as values outputted from the functions getHumanChoice() and getComputerChoice()
     if (humanSelection == "Rock" && computerSelection == "Paper") {
         console.log("You have lost. Paper beats Rock.");
-        console.log("Computer's Score:" + " " + ++computerScore);
+        console.log("Computer's Score:" + " " + ++computerScore);   // increments and outputs the players' scores
     }
     else if (humanSelection == "Rock" && computerSelection == "Scissors") {
         console.log("You have won! Rock beats Scissors.");
@@ -68,7 +68,8 @@ function playRound(humanSelection, computerSelection) {
 function playGame() {
     for(let round = 1; round <= 5; round++) {   // loop calls playRound() 5 times
         const humanSelection = getHumanChoice();   // Declare getHumanChoice() and getComputerChoice() functions as variables to be used as arguments for playRound()
-        const computerSelection = getComputerChoice();  
+        const computerSelection = getComputerChoice();
+          
         playRound(humanSelection, computerSelection);  // the two arguments allow playRound() to compare and determine the winner for the round
     } 
     // Declares the winner out of 5 rounds 
