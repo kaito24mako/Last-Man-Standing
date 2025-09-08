@@ -35,32 +35,20 @@ let drawScore = 0;
 
 // The logic for one round, including scores
 function playRound(humanSelection, computerSelection) {    // parameters are later declared as values outputted from the functions getHumanChoice() and getComputerChoice()
-    if (humanSelection == "rock" && computerSelection == "paper") {
-        console.log("You lost the round...");
-        ++computerScore;   // increments the players' scores
+    const condition = (humanSelection == "rock" && computerSelection == "scissors") ||
+                      (humanSelection == "paper" && computerSelection == "rock") ||
+                      (humanSelection == "scissors" && computerSelection == "paper") ? 1 : (humanSelection == computerSelection) ? 2 : 0;
+                        // ^ conditional (ternary) operator that assigns truthy and falsy values to a condition, allowing if..else to be concise
+    if (condition == 1) {
+        console.log(`You won the round!!`);
+        ++humanScore;   // increments the players' scores
     }
-    else if (humanSelection == "rock" && computerSelection == "scissors") {
-        console.log("You won the round !!");
-        ++humanScore;
-    }
-    else if (humanSelection == "paper" && computerSelection == "scissors") {
-        console.log("You lost the round...");
+    else if (condition == 0) {
+        console.log(`You lost the round...`);
         ++computerScore;
     }
-    else if (humanSelection == "paper" && computerSelection == "rock") {
-        console.log("You won the round !!");
-        ++humanScore;
-    }
-    else if (humanSelection == "scissors" && computerSelection == "rock") {
-        console.log("You lost the round...");
-        ++computerScore;
-    }
-    else if (humanSelection == "scissors" && computerSelection == "paper") {
-        console.log("You won the round !!");
-        ++humanScore;
-    }
-    else {
-        console.log("It is a draw...");
+    else if (condition == 2) {
+        console.log("It is a draw~");
         ++drawScore;
     }
 }
@@ -72,7 +60,7 @@ function playGame() {
         const humanSelection = getHumanChoice();   // Declare getHumanChoice() and getComputerChoice() functions as variables to be used as arguments for playRound()
         const computerSelection = getComputerChoice();
 
-        console.log(`************ Round ${round} : FIGHT ************`);   // appealing text for every loop 
+        console.log(`*********** Round ${round} : FIGHT ***********`);   // appealing text for every loop 
         console.log(`You used *${humanSelection}* `);   
         console.log(`Your opponent used *${computerSelection}* `);
 
@@ -82,13 +70,13 @@ function playGame() {
     } 
     // Declares the winner out of 5 rounds 
     if (round = 5 && humanScore > computerScore) {
-        console.log("Congratulations! You emerge victorious!!");
+        console.log("Congratulations!\nYou emerge victorious!!");
     }
     else if (round = 5 && computerScore > humanScore) {
-        console.log("Oh no...You have been defeated. Will you enter The Arena once more?");
+        console.log("Oh no...You have been defeated.\nWill you enter The Arena once more?");
     }
     else {
-        console.log("You are both an equal match. Will you enter The Arena once more?");
+        console.log("You are both an equal match.\nWill you enter The Arena once more?");
     }
 }
 
