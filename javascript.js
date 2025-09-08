@@ -14,7 +14,7 @@ function getComputerChoice() {
 
 // Prompt, obtain and return the user's input 
 function getHumanChoice() {
-    let userInput = prompt("// WELCOME TO THE ARENA //\nYou will play five rounds.\nChoose your move:\nRock, Paper, or Scissors?");  // user inputs their choice inside prompt 
+    let userInput = prompt(`// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?`);  // user inputs their choice inside prompt 
     userInput = userInput.toLowerCase();  // converts any input of the choices into lowercase for case-insensitivity
         if (userInput === "rock") {
             return "rock";
@@ -39,28 +39,28 @@ function playRound(humanSelection, computerSelection) {    // parameters are lat
         console.log("You lost the round...");
         ++computerScore;   // increments the players' scores
     }
-    else if (humanSelection == "Rock" && computerSelection == "Scissors") {
-        console.log("You won the round!!");
+    else if (humanSelection == "rock" && computerSelection == "scissors") {
+        console.log("You won the round !!");
         ++humanScore;
     }
-    else if (humanSelection == "Paper" && computerSelection == "Scissors") {
+    else if (humanSelection == "paper" && computerSelection == "scissors") {
         console.log("You lost the round...");
         ++computerScore;
     }
-    else if (humanSelection == "Paper" && computerSelection == "Rock") {
-        console.log("You won the round!!");
+    else if (humanSelection == "paper" && computerSelection == "rock") {
+        console.log("You won the round !!");
         ++humanScore;
     }
-    else if (humanSelection == "Scissors" && computerSelection == "Rock") {
+    else if (humanSelection == "scissors" && computerSelection == "rock") {
         console.log("You lost the round...");
         ++computerScore;
     }
-    else if (humanSelection == "Scissors" && computerSelection == "Paper") {
-        console.log("You won the round!!");
+    else if (humanSelection == "scissors" && computerSelection == "paper") {
+        console.log("You won the round !!");
         ++humanScore;
     }
     else {
-        console.log("It is a draw~");
+        console.log("It is a draw...");
         ++drawScore;
     }
 }
@@ -72,9 +72,9 @@ function playGame() {
         const humanSelection = getHumanChoice();   // Declare getHumanChoice() and getComputerChoice() functions as variables to be used as arguments for playRound()
         const computerSelection = getComputerChoice();
 
-        console.log(`// Round ${round} : FIGHT //`);   // appealing text for every loop 
-        console.log(`You used *${humanSelection}* !!`);   
-        console.log(`Your opponent used *${computerSelection}* !!`);
+        console.log(`************ Round ${round} : FIGHT ************`);   // appealing text for every loop 
+        console.log(`You used *${humanSelection}* `);   
+        console.log(`Your opponent used *${computerSelection}* `);
 
         playRound(humanSelection, computerSelection);  // the two arguments allow playRound() to compare and determine the winner for the round
        
@@ -82,13 +82,13 @@ function playGame() {
     } 
     // Declares the winner out of 5 rounds 
     if (round = 5 && humanScore > computerScore) {
-        console.log("Congratulations! You are the winner out of five rounds!");
+        console.log("Congratulations! You emerge victorious!!");
     }
     else if (round = 5 && computerScore > humanScore) {
-        console.log("Oh no...You have lost out of five rounds. Try again by refreshing the page!");
+        console.log("Oh no...You have been defeated. Will you enter The Arena once more?");
     }
     else {
-        console.log("You are both an equal match out of five rounds. Try again by refreshing the page!");
+        console.log("You are both an equal match. Will you enter The Arena once more?");
     }
 }
 
