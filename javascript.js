@@ -1,8 +1,6 @@
-/*
-
 // Computer generates random number and returns string choice
 function getComputerChoice() {
-    const randomNumber = Math.floor(Math.random() * 3) + 1;
+    const randomNumber = Math.floor(Math.random() * 3) + 1;   // Math.floor() rounds to nearest whole, and Math.random() generates number between 0-1, so +1 to convert to integer and *3 to have three choices
         if (randomNumber === 1) {
             return "Rock";
         }
@@ -13,11 +11,10 @@ function getComputerChoice() {
             return "Scissors";
         }
     }
-getComputerChoice();
 
 // Prompt, obtain and return the user's input 
 function getHumanChoice() {
-    let userInput = prompt("Which do you choose: Rock, Paper, or Scissors?");
+    let userInput = prompt("Which do you choose: Rock, Paper, or Scissors?");  // user inputs their choice inside prompt 
     userInput = userInput.toLowerCase();  
         if (userInput === "rock") {
             return "Rock";
@@ -30,14 +27,13 @@ function getHumanChoice() {
         }
         else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
     }
-getHumanChoice();
 
 // Declare the computer and user's score variables
 let humanScore = 0;
 let computerScore = 0;
 
 // The logic for one round, including scores
-function playRound(humanChoice, computerChoice) {
+function playRound(humanSelection, computerSelection) {
     if (humanSelection == "Rock" && computerSelection == "Paper") {
         console.log("You have lost. Paper beats Rock.");
         console.log("Computer's Score:" + " " + ++computerScore);
@@ -67,9 +63,25 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// Calls playRound to play 5 rounds, keeps track of scores, and declares winner
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+    for(let round = 1; round <= 5; round++) {   // loop calls playRound() 5 times
+        const humanSelection = getHumanChoice();   // Declare getHumanChoice() and getComputerChoice() functions as variables to be used as arguments for playRound()
+        const computerSelection = getComputerChoice();  
+        playRound(humanSelection, computerSelection);  // the two arguments allow playRound() to compare and determine the winner for the round
+    } 
+    // Declares the winner out of 5 rounds 
+    if (round = 5 && humanScore > computerScore) {
+        console.log("Congratulations! You are the winner out of five rounds!");
+    }
+    else if (round = 5 && computerScore > humanScore) {
+        console.log("Oh no...You have lost out of five rounds. Try again by refreshing the page!");
+    }
+    else {
+        console.log("You are both an equal match out of five rounds. Try again by refreshing the page!");
+    }
+}
 
-*/
+playGame();
+

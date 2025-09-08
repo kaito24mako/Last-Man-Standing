@@ -1,3 +1,4 @@
+/*
 // Computer generates random number and returns string choice
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -66,11 +67,22 @@ function playRound(humanSelection, computerSelection) {
 // Calls playRound to play 5 rounds, keeps track of scores, and declares winner
 
 function playGame() {
-    for(let round = 1; round <= 5; round++) {   // loop makes playRound() repeat for up to 5 rounds
-        const humanSelection = getHumanChoice();   // humanSelection is the value of getHumanChoice()
-        const computerSelection = getComputerChoice();   //computerSelection is the value of getHumanChoice()
-        playRound(humanSelection, computerSelection);  // the two arguments from above allow playRound() to compare and determine the winner for the round
+    for(let round = 1; round <= 5; round++) {   // loop calls playRound() 5 times
+        const humanSelection = getHumanChoice();   // Declare getHumanChoice() and getComputerChoice() functions as variables to be used as arguments for playRound()
+        const computerSelection = getComputerChoice();  
+        playRound(humanSelection, computerSelection);  // the two arguments allow playRound() to compare and determine the winner for the round
+    } 
+    // Declares the winner out of 5 rounds 
+    if (round = 5 && humanScore > computerScore) {
+        console.log("Congratulations! You are the winner out of five rounds!");
+    }
+    else if (round = 5 && computerScore > humanScore) {
+        console.log("Oh no...You have lost out of five rounds. Try again!");
+    }
+    else {
+        console.log("You are both an equal match out of five rounds. Try again!");
     }
 }
 
-playGame();
+playGame();  */
+
