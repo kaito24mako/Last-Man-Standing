@@ -1,6 +1,6 @@
-// Computer generates random number and returns string choice
+// Computer generates random number 
 function getComputerChoice() {
-    const randomNumber = Math.floor(Math.random() * 3) + 1;   // Math.floor() rounds to nearest whole, and Math.random() generates number between 0-1, so +1 to convert to integer and *3 to have three choices
+    const randomNumber = Math.floor(Math.random() * 3) + 1;   // +1 converts to integer, *3 to have three choices
         if (randomNumber === 1) {
             return "rock";
         }
@@ -12,10 +12,10 @@ function getComputerChoice() {
         }
     }
 
-// Prompt, obtain and return the user's input 
+// User input
 function getHumanChoice() {
     let userInput = prompt(`// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?`);  // user inputs their choice inside prompt 
-    userInput = userInput.toLowerCase();  // converts any input of the choices into lowercase for case-insensitivity
+    userInput = userInput.toLowerCase();  // converts user input into lowercase for case-insensitivity
         if (userInput === "rock") {
             return "rock";
         }
@@ -28,18 +28,18 @@ function getHumanChoice() {
         else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
     }
 
-// Declare the user and computer's score variables
+// PLayer score variables
 let humanScore = 0;
 let computerScore = 0;
 let drawScore = 0;
 
-// The logic for one round, including scores
-function playRound(humanSelection, computerSelection) {    // parameters are later declared as values outputted from the functions getHumanChoice() and getComputerChoice()
+// Logic for one round
+function playRound(humanSelection, computerSelection) {   
     if (humanSelection == "rock" && computerSelection == "scissors" ||
         humanSelection == "paper" && computerSelection == "rock" ||
         humanSelection == "scissors" && computerSelection == "paper") {
         console.log(`You won the round!!`);
-        ++humanScore;   // increments the players' scores
+        ++humanScore;   
     }
     else if (humanSelection == computerSelection) {
         console.log("It is a draw~");
@@ -51,26 +51,26 @@ function playRound(humanSelection, computerSelection) {    // parameters are lat
     }
 }
 
-// Calls playRound to play 5 rounds, keeps track of scores, and declares winner
+// Play 5 rounds
 
 function playGame() {
-    for(let round = 1; round <= 5; round++) {   // loop calls playRound() 5 times
-        const humanSelection = getHumanChoice();   // Declare getHumanChoice() and getComputerChoice() functions as variables to be used as arguments for playRound()
+    for(let round = 1; round <= 5; round++) {      // loop calls playRound() 5 times
+           
+        const humanSelection = getHumanChoice();   // functions become variables for playRound() to use as arguments
         const computerSelection = getComputerChoice();
 
-        console.log(`*********** Round ${round} : FIGHT ***********`);   // appealing text for every loop 
+        console.log(`*********** Round ${round} : FIGHT ***********`);   
         console.log(`You used *${humanSelection}* `);   
         console.log(`Your opponent used *${computerSelection}* `);
 
-        playRound(humanSelection, computerSelection);  // the two arguments allow playRound() to compare and determine the winner for the round
+        playRound(humanSelection, computerSelection);  // arguments allow to compare and determine winner
        
-        console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  // outputs the scores every loop
+        console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
     } 
-    // Declares the winner out of 5 rounds 
-    if (round = 5 && humanScore > computerScore) {
+    if (humanScore > computerScore) {
         console.log("Congratulations!\nYou emerge victorious!!");
     }
-    else if (round = 5 && computerScore > humanScore) {
+    else if (computerScore > humanScore) {
         console.log("Oh no...You have been defeated.\nWill you enter The Arena once more?");
     }
     else {
