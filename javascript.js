@@ -38,27 +38,28 @@ function playRound(humanSelection, computerSelection) {
         winText.textContent = "You lost the round..";
         ++computerScore;
     }
+    console.log(humanSelection);
+    console.log(computerSelection);
 };
 
 function playGame() {
-     const game = document.querySelector(".game");
-        const gameText = document.createElement("p");
-        game.appendChild(gameText);
-        gameText.textContent = "// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?"
-        
-    for(let round = 1; round <= 5; round++) {
-
-        buttons.addEventListener("click", function(event) {
+    const game = document.querySelector(".game");
+    const gameText = document.createElement("p");
+    game.appendChild(gameText);
+    gameText.textContent = "// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?"
+    
+    buttons.addEventListener("click", function(event) {
             let humanSelection = event.target.id;
             let computerSelection = getComputerChoice();
             playRound(humanSelection, computerSelection);
-            console.log(event.target.id);
-        });
+            console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
 
-    }  
+            if (humanScore || computerScore === 5) {
+                event.stopImmediatePropagation();
+            }
+    });
+    }   
 
-    console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
-    
     if (humanScore > computerScore) {
         console.log("Congratulations!\nYou emerge victorious!!");
     }
@@ -68,7 +69,6 @@ function playGame() {
     else {
         console.log("You are both an equal match.\nWill you enter The Arena once more?");
     }
-}
 
 playGame();
 
