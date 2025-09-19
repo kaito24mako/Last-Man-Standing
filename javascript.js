@@ -58,20 +58,22 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const buttons = document.querySelector(".buttons");
 
-let myFunction = playRound; 
 
-buttons.addEventListener("click", (event) => {
-    switch(buttons.id) {
+
+buttons.addEventListener("click", function(event) {
+    switch(event.target.id) {
         case "rock":
-            humanSelection="rock";
+            humanSelection = event.target.id;
             break;
         case "paper":
-            humanSelection="paper";
+            humanSelection = event.target.id;
             break;
         case "scissors":
-            humanSelection="scissors";
+            humanSelection = event.target.id;
             break;
     };
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
     console.log(event.target.id);
 });
 
