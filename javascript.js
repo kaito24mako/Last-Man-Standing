@@ -28,7 +28,7 @@ function playRound(humanSelection, computerSelection) {
         humanSelection == "paper" && computerSelection == "rock" ||
         humanSelection == "scissors" && computerSelection == "paper") {
         winText.textContent = "You won the round!";
-        ++humanScore;   
+        ++humanScore;  
     }
     else if (humanSelection == computerSelection) {
         winText.textContent = "It is a draw~";
@@ -54,10 +54,11 @@ function playGame() {
             playRound(humanSelection, computerSelection);
             console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
 
-            if (humanScore || computerScore === 5) {
-                event.stopImmediatePropagation();
+            if (humanScore === 5 ||
+                computerScore === 5) {
+                buttons.removeEventListener("click", playRound);
             }
-    });
+    })
     }   
 
     if (humanScore > computerScore) {
