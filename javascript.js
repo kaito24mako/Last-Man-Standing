@@ -35,22 +35,25 @@ let drawScore = 0;
 
 // Logic for one round
 function playRound(humanSelection, computerSelection) {   
+    const div = document.querySelector(".message");
+    const winText = document.createElement("p");
+    div.appendChild(winText);
+
     if (humanSelection == "rock" && computerSelection == "scissors" ||
         humanSelection == "paper" && computerSelection == "rock" ||
         humanSelection == "scissors" && computerSelection == "paper") {
-        console.log(`You won the round!!`);
+        winText.textContent = "You won the round!";
         ++humanScore;   
     }
     else if (humanSelection == computerSelection) {
-        console.log("It is a draw~");
+        winText.textContent = "It is a draw~";
         ++drawScore;
     }
     else {
-        console.log(`You lost the round...`);
+        winText.textContent = "You lost the round..";
         ++computerScore;
     }
-}
-
+};
 
 // buttons for humanSelection 
 const rock = document.querySelector("#rock");
@@ -58,31 +61,49 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const buttons = document.querySelector(".buttons");
 
-
-
+// clicking a button calls the logic of one round 
 buttons.addEventListener("click", function(event) {
-    switch(event.target.id) {
-        case "rock":
-            humanSelection = event.target.id;
-            break;
-        case "paper":
-            humanSelection = event.target.id;
-            break;
-        case "scissors":
-            humanSelection = event.target.id;
-            break;
-    };
+
+    // a click gets the specific id of the child button from the parent container
+    let humanSelection = event.target.id;
+    
+    // declares computerSelection as the value of random number function 
     let computerSelection = getComputerChoice();
+
+    // runs one round 
     playRound(humanSelection, computerSelection);
+
+    // debug log 
     console.log(event.target.id);
 });
 
 
+function playGame() {
+    for(let round = 1; round <= 5; round++) {
 
+        const game = document.querySelector(".game");
+        const gameText = document.createElement("p");
+        game.appendChild(gameText);
+        gameText.textContent = "// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?"
+    
+        buttons.addEventListener("click", function(event) {
 
+            // a click gets the specific id of the child button from the parent container
+            let humanSelection = event.target.id;
+    
+             // declares computerSelection as the value of random number function 
+            let computerSelection = getComputerChoice();
 
+            // runs one round 
+            playRound(humanSelection, computerSelection);
 
+            // debug log 
+            console.log(event.target.id);
+        })
+    }
+}
 
+playGame();
 
 
 // logic for five rounds
@@ -110,10 +131,5 @@ function playGame() {
     else {
         console.log("You are both an equal match.\nWill you enter The Arena once more?");
     }
-}
-
-playGame();
-    */
-
-
+}  */
 
