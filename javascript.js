@@ -40,23 +40,6 @@ function playRound(humanSelection, computerSelection) {
     }
 };
 
-// clicking a button calls the logic of one round 
-buttons.addEventListener("click", function(event) {
-
-    // a click gets the specific id of the child button from the parent container
-    let humanSelection = event.target.id;
-    
-    // declares computerSelection as the value of random number function 
-    let computerSelection = getComputerChoice();
-
-    // runs one round 
-    playRound(humanSelection, computerSelection);
-
-    // debug log 
-    console.log(event.target.id);
-});
-
-
 function playGame() {
     for(let round = 1; round <= 5; round++) {
 
