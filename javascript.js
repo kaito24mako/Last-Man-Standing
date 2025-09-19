@@ -55,10 +55,7 @@ function playGame() {
             console.log(event.target.id);
         });
 
-        console.log(`*********** Round ${round} : FIGHT ***********`);   
-        console.log(`You used *${humanSelection}* `);   
-        console.log(`Your opponent used *${computerSelection}* `);
-    }
+    }  
 
     console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
     
@@ -102,3 +99,10 @@ function playGame() {
     }
 }  */
 
+
+    // text for user vs opponent inputs - add later!
+    /*
+        console.log(`*********** Round ${round} : FIGHT ***********`);   
+        console.log(`You used *${humanSelection}* `);   
+        console.log(`Your opponent used *${computerSelection}* `);
+    */
