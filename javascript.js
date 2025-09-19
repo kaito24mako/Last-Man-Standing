@@ -1,6 +1,12 @@
+// Variables
+let humanScore = 0;
+let computerScore = 0;
+let drawScore = 0;
+const buttons = document.querySelector(".buttons");
+
 // Computer generates random number 
 function getComputerChoice() {
-    const randomNumber = Math.floor(Math.random() * 3) + 1;   // +1 converts to integer, *3 to have three choices
+    const randomNumber = Math.floor(Math.random() * 3) + 1;   
         if (randomNumber === 1) {
             return "rock";
         }
@@ -11,12 +17,6 @@ function getComputerChoice() {
             return "scissors";
         }
     }
-
-
-// PLayer score variables
-let humanScore = 0;
-let computerScore = 0;
-let drawScore = 0;
 
 // Logic for one round
 function playRound(humanSelection, computerSelection) {   
@@ -39,12 +39,6 @@ function playRound(humanSelection, computerSelection) {
         ++computerScore;
     }
 };
-
-// buttons for humanSelection 
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
-const buttons = document.querySelector(".buttons");
 
 // clicking a button calls the logic of one round 
 buttons.addEventListener("click", function(event) {
