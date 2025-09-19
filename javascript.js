@@ -41,24 +41,39 @@ function playRound(humanSelection, computerSelection) {
 };
 
 function playGame() {
-    for(let round = 1; round <= 5; round++) {
-
-        const game = document.querySelector(".game");
+     const game = document.querySelector(".game");
         const gameText = document.createElement("p");
         game.appendChild(gameText);
         gameText.textContent = "// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?"
-    
+        
+    for(let round = 1; round <= 5; round++) {
+
         buttons.addEventListener("click", function(event) {
             let humanSelection = event.target.id;
             let computerSelection = getComputerChoice();
             playRound(humanSelection, computerSelection);
             console.log(event.target.id);
-        })
+        });
+
+        console.log(`*********** Round ${round} : FIGHT ***********`);   
+        console.log(`You used *${humanSelection}* `);   
+        console.log(`Your opponent used *${computerSelection}* `);
+    }
+
+    console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
+    
+    if (humanScore > computerScore) {
+        console.log("Congratulations!\nYou emerge victorious!!");
+    }
+    else if (computerScore > humanScore) {
+        console.log("Oh no...You have been defeated.\nWill you enter The Arena once more?");
+    }
+    else {
+        console.log("You are both an equal match.\nWill you enter The Arena once more?");
     }
 }
 
 playGame();
-
 
 // logic for five rounds
 /*
