@@ -12,21 +12,6 @@ function getComputerChoice() {
         }
     }
 
-// User input
-function getHumanChoice() {
-    let userInput = prompt(`// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?`);  // user inputs their choice inside prompt 
-    userInput = userInput.toLowerCase();  // converts user input into lowercase for case-insensitivity
-        if (userInput === "rock") {
-            return "rock";
-        }
-        else if (userInput === "paper") {
-            return "paper";
-        }
-        else if (userInput === "scissors") {
-            return "scissors";
-        }
-        else (alert("You did not enter a valid choice. Please refresh the page and type your choice again."))
-    }
 
 // PLayer score variables
 let humanScore = 0;
@@ -87,17 +72,9 @@ function playGame() {
         gameText.textContent = "// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?"
     
         buttons.addEventListener("click", function(event) {
-
-            // a click gets the specific id of the child button from the parent container
             let humanSelection = event.target.id;
-    
-             // declares computerSelection as the value of random number function 
             let computerSelection = getComputerChoice();
-
-            // runs one round 
             playRound(humanSelection, computerSelection);
-
-            // debug log 
             console.log(event.target.id);
         })
     }
