@@ -4,12 +4,6 @@ let computerScore = 0;
 let drawScore = 0;
 const buttons = document.querySelector(".buttons");
 
-let container = document.querySelector(".result");
-let playerText = document.createElement("p");
-let computerText = document.createElement("p");
-let resultText = document.createElement("p");
-container.append(playerText, computerText, resultText);
-
 // Computer generates random number 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;   
@@ -24,27 +18,20 @@ function getComputerChoice() {
         }
     }
 
-// Logic for one round 
+// DOM nodes
+let container = document.querySelector(".result");
+let playerText = document.createElement("p");
+let computerText = document.createElement("p");
+let resultText = document.createElement("p");
+let scoreText = document.createElement("p");
+container.append(playerText, computerText, resultText, scoreText);
+
+// Logic for one round
 function playRound(playerSelection, computerSelection) {  
 
+    // player and computer selections
     playerText.textContent = `You used *${playerSelection}* `;
     computerText.textContent = `Your opponent used *${computerSelection}* `;
-
-
-    // texts of player and computer selections + result
-   /* let container = document.querySelector(".result");
-
-    let playerText = document.createElement("p");
-    container.appendChild(playerText);
-
-    let computerText = document.createElement("p");
-    container.appendChild(computerText);
-
-    let resultText = document.createElement("p");
-    container.appendChild(resultText);
-
-    playerText.textContent = `You used *${playerSelection}* `;
-    computerText.textContent = `Your opponent used *${computerSelection}* `;  */
 
     // win / lose / draw conditions
     if (playerSelection == "rock" && computerSelection == "scissors" ||
@@ -61,6 +48,9 @@ function playRound(playerSelection, computerSelection) {
         resultText.textContent = "You lost the round..";
         ++computerScore;
     }
+
+    // scores
+    scoreText.textContent = `Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`;
 };
 
 
@@ -69,8 +59,6 @@ function handleClick(event) {
     let playerSelection = event.target.id;
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-
-    console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
 
     // stops event 
     if (humanScore === 5 || computerScore === 5) {
