@@ -19,14 +19,20 @@ function getComputerChoice() {
     }
 
 // Logic for one round
-function playRound(humanSelection, computerSelection) {   
-    const div = document.querySelector(".result");
-    const winText = document.createElement("p");
-    div.appendChild(winText);
+function playRound(humanSelection, computerSelection) {  
+    // human selection text
+    let container = document.querySelector(".result");
+    let playerText = document.createElement("p");
+    container.appendChild(playerText);
+
+    // result text 
+    let winText = document.createElement("p");
+    container.appendChild(winText);
 
     if (humanSelection == "rock" && computerSelection == "scissors" ||
         humanSelection == "paper" && computerSelection == "rock" ||
         humanSelection == "scissors" && computerSelection == "paper") {
+        playerText.textContent = `You used *${humanSelection}* `;
         winText.textContent = "You won the round!";
         ++humanScore;  
     }
@@ -40,18 +46,14 @@ function playRound(humanSelection, computerSelection) {
     }
 };
 
-function playGame() {
-    const intro = document.querySelector(".intro");
-    const welcomeText = document.createElement("p");
-    intro.appendChild(welcomeText);
-    welcomeText.textContent = "WELCOME TO THE ARENA. You will play a total of five rounds. Choose your move: Rock, Paper, or Scissors?"
-};
-
+// Click plays the logic of one round until five points
+// (Event Listener with Named Function)
 function handleClick(event) {
     let humanSelection = event.target.id;
     let computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-
+      
+    console.log(`Your opponent used *${computerSelection}* `);
     console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
 
     if (humanScore === 5 || computerScore === 5) {
@@ -62,8 +64,7 @@ function handleClick(event) {
 buttons.addEventListener("click", handleClick);
     
 
-
-
+     
 
     if (humanScore > computerScore) {
         console.log("Congratulations!\nYou emerge victorious!!");
@@ -75,7 +76,6 @@ buttons.addEventListener("click", handleClick);
         console.log("You are both an equal match.\nWill you enter The Arena once more?");
     }
 
-playGame();
 
 // logic for five rounds
 /*
