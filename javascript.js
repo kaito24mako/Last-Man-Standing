@@ -19,29 +19,35 @@ function getComputerChoice() {
     }
 
 // Logic for one round
-function playRound(humanSelection, computerSelection) {  
-    // human selection text
+function playRound(playerSelection, computerSelection) {  
+
+    // texts of player and computer selections + result
     let container = document.querySelector(".result");
+
     let playerText = document.createElement("p");
     container.appendChild(playerText);
 
-    // result text 
-    let winText = document.createElement("p");
-    container.appendChild(winText);
+    let computerText = document.createElement("p");
+    container.appendChild(computerText);
 
-    if (humanSelection == "rock" && computerSelection == "scissors" ||
-        humanSelection == "paper" && computerSelection == "rock" ||
-        humanSelection == "scissors" && computerSelection == "paper") {
-        playerText.textContent = `You used *${humanSelection}* `;
-        winText.textContent = "You won the round!";
+    let resultText = document.createElement("p");
+    container.appendChild(resultText);
+
+    playerText.textContent = `You used *${playerSelection}* `;
+    computerText.textContent = `Your opponent used *${computerSelection}* `;
+
+    if (playerSelection == "rock" && computerSelection == "scissors" ||
+        playerSelection == "paper" && computerSelection == "rock" ||
+        playerSelection == "scissors" && computerSelection == "paper") {
+        resultText.textContent = "You won the round!";
         ++humanScore;  
     }
-    else if (humanSelection == computerSelection) {
-        winText.textContent = "It is a draw~";
+    else if (playerSelection == computerSelection) {
+        resultText.textContent = "It is a draw~";
         ++drawScore;
     }
     else {
-        winText.textContent = "You lost the round..";
+        resultText.textContent = "You lost the round..";
         ++computerScore;
     }
 };
@@ -49,11 +55,10 @@ function playRound(humanSelection, computerSelection) {
 // Click plays the logic of one round until five points
 // (Event Listener with Named Function)
 function handleClick(event) {
-    let humanSelection = event.target.id;
+    let playerSelection = event.target.id;
     let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
       
-    console.log(`Your opponent used *${computerSelection}* `);
     console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
 
     if (humanScore === 5 || computerScore === 5) {
