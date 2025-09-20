@@ -29,10 +29,11 @@ function setupUI () {
     let computerText = document.createElement("p");
     let resultText = document.createElement("p");
     let scoreText = document.createElement("p");
+    let finalText = document.createElement("h3");
 
-    container.append(roundText, playerText, computerText, resultText, scoreText);
+    container.append(roundText, playerText, computerText, resultText, scoreText, finalText);
 
-    return {roundText, playerText, computerText, resultText, scoreText};
+    return {roundText, playerText, computerText, resultText, scoreText, finalText};
 };
 
 // Logic of one round
@@ -72,8 +73,8 @@ function handleClick(event) {
     if (humanScore === 5 || computerScore === 5) {
         buttons.removeEventListener("click", handleClick);
         humanScore > computerScore 
-        ? alert("Congratulations!\nYou emerge victorious!!") 
-        : alert("Oh no...You have been defeated.\nWill you enter The Arena once more?");
+        ? ui.finalText.textContent = "Congratulations! You emerge victorious!!"
+        : ui.finalText.textContent = "Oh no...You have been defeated. Will you enter The Arena once more?";
     }
 };
 
