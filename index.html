@@ -11,6 +11,7 @@
 <main>
     <header class="intro">
         <h1>The Arena</h1>
+        <p>created by Kaito Watanabe</p>
         <p>Defeat your opponent.</p>
         <p>A successful attack = damage to 20% of total health.</p>
         <p>Good luck, gladiator.</p>
@@ -18,27 +19,24 @@
 
     <div class="playfield"><div>
         <div class="player">
-            <div id="health"></div>
+            <div id="health">health: 100%</div>
             <img id="gladiator" src="./img/gladiator.png" alt="A gladiator standing firm">
-            <div id="selection"></div>
+            <div id="selection">you used *punch*</div>
         </div>
         <div class="opponent">
-            <div id="health"></div>
+            <div id="health">health: 100%</div>
             <img id="enemy" src="./img/enemy.png" alt="The enemy fighter taunting with sword">
-            <div id="selection"></div>
+            <div id="selection">your opponent used *punch*</div>
         </div>
-        
-
     </div>  
-    
-    <div class="result"></div>
 
     <div class="buttons">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <button id="rock"><img src="./img/punch.png"></button>
+        <button id="paper"><img src="./img/slap.png"></button>
+        <button id="scissors"><img src="./img/cut.png"></button>
     </div>
-
+    
+    <div class="result"></div>
 </main>
     <script src="./js/javascript.js" defer></script>
 </body>

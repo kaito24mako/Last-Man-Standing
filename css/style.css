@@ -13,7 +13,7 @@ html {
 
 }  */
 
-/* Figures */
+/* Images */
 img, #gladiator {
     width: 200px;
     height: auto;
@@ -22,4 +22,9 @@ img, #gladiator {
 img, #enemy {
     width: 250px;
     height: 200px;
+}
+
+.buttons, img {
+    width: 120px;
+    height: auto;
 }
