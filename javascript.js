@@ -1,4 +1,5 @@
 // Variables
+let round = 0;
 let humanScore = 0;
 let computerScore = 0;
 let drawScore = 0;
@@ -18,16 +19,21 @@ function getComputerChoice() {
         }
     }
 
-// DOM nodes
+// new DOM elements for logic of one round
 let container = document.querySelector(".result");
+let roundText = document.createElement("p");
 let playerText = document.createElement("p");
 let computerText = document.createElement("p");
 let resultText = document.createElement("p");
 let scoreText = document.createElement("p");
-container.append(playerText, computerText, resultText, scoreText);
+container.append(roundText, playerText, computerText, resultText, scoreText);
 
-// Logic for one round
+
+// Logic of one round
 function playRound(playerSelection, computerSelection) {  
+
+    ++round;
+    roundText.textContent = `****** Round ${round} FIGHT ******`;
 
     // player and computer selections
     playerText.textContent = `You used *${playerSelection}* `;
@@ -37,7 +43,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "scissors" ||
         playerSelection == "paper" && computerSelection == "rock" ||
         playerSelection == "scissors" && computerSelection == "paper") {
-        resultText.textContent = "You won the round!";
+        resultText.textContent = "You won the round!!";
         ++humanScore;  
     }
     else if (playerSelection == computerSelection) {
@@ -45,7 +51,7 @@ function playRound(playerSelection, computerSelection) {
         ++drawScore;
     }
     else {
-        resultText.textContent = "You lost the round..";
+        resultText.textContent = "You lost the round...";
         ++computerScore;
     }
 
