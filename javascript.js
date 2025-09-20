@@ -32,6 +32,7 @@ container.append(roundText, playerText, computerText, resultText, scoreText);
 // Logic of one round
 function playRound(playerSelection, computerSelection) {  
 
+    // round counter
     ++round;
     roundText.textContent = `****** Round ${round} FIGHT ******`;
 
@@ -69,25 +70,13 @@ function handleClick(event) {
     // stops event 
     if (humanScore === 5 || computerScore === 5) {
         buttons.removeEventListener("click", handleClick);
+        humanScore > computerScore ? alert("Congratulations! You emerge victorious!!") : alert("Oh no...You have been defeated. Will you enter The Arena once more?");
     }
 };
 
 // calls one round per button click
 buttons.addEventListener("click", handleClick);
     
-
-     
-
-    if (humanScore > computerScore) {
-        console.log("Congratulations!\nYou emerge victorious!!");
-    }
-    else if (computerScore > humanScore) {
-        console.log("Oh no...You have been defeated.\nWill you enter The Arena once more?");
-    }
-    else {
-        console.log("You are both an equal match.\nWill you enter The Arena once more?");
-    }
-
 
 // logic for five rounds
 /*
