@@ -18,6 +18,8 @@ function getComputerChoice() {
         }
     }
 
+console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
+
 // Logic for one round
 function playRound(playerSelection, computerSelection) {  
 
@@ -36,6 +38,7 @@ function playRound(playerSelection, computerSelection) {
     playerText.textContent = `You used *${playerSelection}* `;
     computerText.textContent = `Your opponent used *${computerSelection}* `;
 
+    // win / lose / draw conditions
     if (playerSelection == "rock" && computerSelection == "scissors" ||
         playerSelection == "paper" && computerSelection == "rock" ||
         playerSelection == "scissors" && computerSelection == "paper") {
@@ -52,20 +55,20 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-// Click plays the logic of one round until five points
-// (Event Listener with Named Function)
+
 function handleClick(event) {
+    // calls one round 
     let playerSelection = event.target.id;
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-      
-    console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
 
+    // stops event 
     if (humanScore === 5 || computerScore === 5) {
         buttons.removeEventListener("click", handleClick);
     }
 };
 
+// calls one round per button click
 buttons.addEventListener("click", handleClick);
     
 
