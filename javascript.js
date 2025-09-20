@@ -60,7 +60,7 @@ function playRound(playerSelection, computerSelection) {
     ui.scoreText.textContent = `Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`;
 };
 
-// Named function for use with Event Listener
+// Event Handler: what a click does 
 function handleClick(event) {
 
     // calls one round 
@@ -71,9 +71,11 @@ function handleClick(event) {
     // stops event 
     if (humanScore === 5 || computerScore === 5) {
         buttons.removeEventListener("click", handleClick);
-        humanScore > computerScore ? alert("Congratulations!\nYou emerge victorious!!") : alert("Oh no...You have been defeated.\nWill you enter The Arena once more?");
+        humanScore > computerScore 
+        ? alert("Congratulations!\nYou emerge victorious!!") 
+        : alert("Oh no...You have been defeated.\nWill you enter The Arena once more?");
     }
 };
 
-// Calls one round per button click
+// Event Listener: calls Event Handler per click
 buttons.addEventListener("click", handleClick);
