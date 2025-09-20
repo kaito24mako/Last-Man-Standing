@@ -1,0 +1,25 @@
+/* Reset */
+/*
+html {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+
+}  */
+
+/* Figures */
+img, #player {
+    width: 200px;
+    height: auto;
+}
+
+img, #enemy {
+    width: 250px;
+    height: 200px;
+}
