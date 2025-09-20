@@ -47,19 +47,25 @@ function playGame() {
     const gameText = document.createElement("p");
     game.appendChild(gameText);
     gameText.textContent = "// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?"
-    
-    buttons.addEventListener("click", function(event) {
-            let humanSelection = event.target.id;
-            let computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-            console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
+};
 
-            if (humanScore === 5 ||
-                computerScore === 5) {
-                buttons.removeEventListener("click", playRound);
-            }
-    })
-    }   
+function handleClick(event) {
+    let humanSelection = event.target.id;
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+    console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
+
+    if (humanScore === 5 || computerScore === 5) {
+                buttons.removeEventListener("click", handleClick);
+    }
+};
+
+buttons.addEventListener("click", handleClick);
+    
+
+
+
 
     if (humanScore > computerScore) {
         console.log("Congratulations!\nYou emerge victorious!!");
