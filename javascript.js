@@ -20,7 +20,7 @@ function getComputerChoice() {
 
 // Logic for one round
 function playRound(humanSelection, computerSelection) {   
-    const div = document.querySelector(".message");
+    const div = document.querySelector(".result");
     const winText = document.createElement("p");
     div.appendChild(winText);
 
@@ -38,15 +38,13 @@ function playRound(humanSelection, computerSelection) {
         winText.textContent = "You lost the round..";
         ++computerScore;
     }
-    console.log(humanSelection);
-    console.log(computerSelection);
 };
 
 function playGame() {
-    const game = document.querySelector(".game");
-    const gameText = document.createElement("p");
-    game.appendChild(gameText);
-    gameText.textContent = "// WELCOME TO THE ARENA //\nYou will play a total of five rounds.\nChoose your move:\nRock, Paper, or Scissors?"
+    const intro = document.querySelector(".intro");
+    const welcomeText = document.createElement("p");
+    intro.appendChild(welcomeText);
+    welcomeText.textContent = "WELCOME TO THE ARENA. You will play a total of five rounds. Choose your move: Rock, Paper, or Scissors?"
 };
 
 function handleClick(event) {
@@ -57,7 +55,7 @@ function handleClick(event) {
     console.log(`Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`);  
 
     if (humanScore === 5 || computerScore === 5) {
-                buttons.removeEventListener("click", handleClick);
+        buttons.removeEventListener("click", handleClick);
     }
 };
 
