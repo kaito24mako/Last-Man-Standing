@@ -77,6 +77,22 @@ body {
     font-size: 19px;
 }
 
+.player .name-selection {
+    position: relative;
+}
+.player .selection {
+    position: absolute;
+    left: 70%;
+}
+
+.opponent .name-selection {
+    position: relative;
+}
+.opponent .selection {
+    position: absolute;
+    right: 70%;
+}
+
 /* Buttons */
 button {
     cursor: pointer;
