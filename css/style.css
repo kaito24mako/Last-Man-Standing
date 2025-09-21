@@ -81,13 +81,13 @@ body {
 .player .name-selection {
     position: relative;
 }
-.playerSelection {
+.playerSelectionPlacehold {
     position: absolute;
     left: 70%;
     width: 60px;
     height: auto;
 }
-.playerSelection img {
+.playerSelectionPlacehold img {
     width: 120px;
     height: auto;
 }
@@ -95,11 +95,11 @@ body {
 .opponent .name-selection {
     position: relative;
 }
-.computerSelection {
+.computerSelectionPlacehold {
     position: absolute;
     right: 70%;
 }
-.playerSelection img {
+.computerSelectionPlacehold img {
     width: 120px;
     height: auto;
 }

@@ -18,13 +18,13 @@ function getComputerChoice() {
         else {
             return "scissors";
         }
-    }
+};
 
 // UI setup
 function setupUI () {
     let container = document.querySelector(".result");
-    let playerSelectionCopy = document.querySelector(".playerSelection");
-    let computerSelectionCopy = document.querySelector(".computerSelection");
+    let playerPosition = document.querySelector(".playerSelectionPlacehold");
+    let aiPosition = document.querySelector(".computerSelectionPlacehold"); 
 
     let roundText = document.createElement("p");
     let playerText = document.createElement("p");
@@ -36,18 +36,24 @@ function setupUI () {
     container.append(roundText, playerText, computerText, resultText, scoreText, finalText);
 
     return {roundText, playerText, computerText, resultText, scoreText, finalText, 
-            playerSelectionCopy, computerSelectionCopy};
+            playerPosition, aiPosition};
 };
 
 // Logic of one round
 function playRound(playerSelection, computerSelection) {  
     ++round;
     
-    let selectedImg = event.target.closest("button").querySelector("img");
-    let copyImg = selectedImg.cloneNode(true);
-    ui.playerSelectionCopy.textContent = "";
-    ui.playerSelectionCopy.appendChild(copyImg);
-    
+    let playerImg = event.target.closest("button").querySelector("img");
+    let playerImgCopy = playerImg.cloneNode(true);
+    ui.playerPosition.textContent = "";
+    ui.playerPosition.appendChild(playerImgCopy);
+
+    let aiButton = document.getElementById(computerSelection);
+    let aiImg = aiButton.querySelector("img");
+    let aiImgCopy = aiImg.cloneNode(true);
+    ui.aiPosition.textContent = ""; 
+    ui.aiPosition.appendChild(aiImgCopy);
+
     ui.roundText.textContent = `****** Round ${round} FIGHT ******`;
     ui.playerText.textContent = `You used *${playerSelection}* `;
     ui.computerText.textContent = `Your opponent used *${computerSelection}* `;
