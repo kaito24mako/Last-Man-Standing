@@ -22,7 +22,7 @@ function getComputerChoice() {
 
 // UI setup
 function setupUI () {
-    let container = document.querySelector(".result");
+    let container = document.querySelector(".info");
     let playerPosition = document.querySelector(".playerPosition");
     let aiPosition = document.querySelector(".aiPosition"); 
     let playerHealth = document.querySelector("#playerHealth");

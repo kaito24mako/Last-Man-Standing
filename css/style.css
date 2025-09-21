@@ -57,24 +57,35 @@ body {
 
 /* Playfield */
 .playfield {
+   display: flex;
+   justify-content: center;
    padding: 0 60px;
    padding-top: 200px;
    padding-bottom: 80px;
-
-   display: flex;
-   justify-content: center;
 }
 .player, .opponent {
     text-align: center;
     flex: 1; 
     font-size: 18px;
 }
-.result {
+.info {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 19px;
     gap: 60px;
+}
+#playerHealth, #aiHealth {
+    border: 1.5px solid black;
+    border-radius: 30px;
+    padding: 5px 15px;
+    background-color: rgba(243, 41, 41, 0.747);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#playerHealth {
+    background-color: rgba(26, 117, 221, 0.842);
 }
 
 /* Playfield - img copies of selected buttons */
