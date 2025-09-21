@@ -74,6 +74,8 @@ body {
     align-items: center;
     font-size: 19px;
     gap: 60px;
+    font-weight: bold;
+    background: linear-gradient(rgba(0, 0, 0, 0.301), rgba(0, 0, 0, 0));
 }
 #playerHealth, #aiHealth {
     border: 1.5px solid black;
