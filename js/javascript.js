@@ -29,21 +29,16 @@ function setupUI () {
     let aiHealth = document.querySelector("#aiHealth");
 
     let roundText = document.createElement("p");
-    let playerText = document.createElement("p");
-    let computerText = document.createElement("p");
     let resultText = document.createElement("p");
-    let scoreText = document.createElement("p");
     let finalText = document.createElement("h3");
     let playerHealthText = document.createElement("p");
     let aiHealthText = document.createElement("p");
 
-    container.append(roundText, playerText, computerText, resultText, scoreText, finalText);
-
+    container.append(roundText, resultText, finalText);
     playerHealth.append(playerHealthText);
-
     aiHealth.append(aiHealthText);
 
-    return {roundText, playerText, computerText, resultText, scoreText, finalText, 
+    return {roundText, resultText, finalText, 
             playerPosition, aiPosition, 
             playerHealthText, aiHealthText};
 };
@@ -64,9 +59,10 @@ function playRound(playerSelection, computerSelection) {
     ui.aiPosition.textContent = ""; 
     ui.aiPosition.appendChild(aiImageCopy);
 
+    ui.playerHealthText.textContent = `Health: ${humanScore}%`;
+    ui.aiHealthText.textContent = `Health: ${computerScore}%`;
+
     ui.roundText.textContent = `****** Round ${round} FIGHT ******`;
-    ui.playerText.textContent = `You used *${playerSelection}* `;
-    ui.computerText.textContent = `Your opponent used *${computerSelection}* `;
 
     if (playerSelection == "rock" && computerSelection == "scissors" ||
         playerSelection == "paper" && computerSelection == "rock" ||
@@ -82,13 +78,6 @@ function playRound(playerSelection, computerSelection) {
         ui.resultText.textContent = "You lost the round...";
         humanScore -= 20;
     }
-
-    ui.scoreText.textContent = `Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`;
-
-    ui.playerHealthText.textContent = `Health: ${humanScore}%`;
-
-    ui.aiHealthText.textContent = `Health: ${computerScore}%`;
-
 };
 
 // Event Handler: what a click does 
