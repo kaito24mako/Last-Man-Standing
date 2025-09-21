@@ -95,11 +95,11 @@ body {
 .opponent .name-selection {
     position: relative;
 }
-.computerPosition {
+.aiPosition {
     position: absolute;
     right: 70%;
 }
-.computerPosition img {
+.aiPosition img {
     width: 120px;
     height: auto;
 }

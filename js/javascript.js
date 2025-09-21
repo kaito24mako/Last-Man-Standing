@@ -1,7 +1,7 @@
 // Variables
 let round = 0;
-let humanScore = 0;
-let computerScore = 0;
+let humanScore = 5;
+let computerScore = 5;
 let drawScore = 0;
 const buttons = document.querySelector(".buttons");
 const ui = setupUI();
@@ -24,8 +24,9 @@ function getComputerChoice() {
 function setupUI () {
     let container = document.querySelector(".result");
     let playerPosition = document.querySelector(".playerPosition");
-    let aiPosition = document.querySelector(".computerPosition"); 
-    let playerHealthBar = document.querySelector("#playerHealth");
+    let aiPosition = document.querySelector(".aiPosition"); 
+    let playerHealth = document.querySelector("#playerHealth");
+    let aiHealth = document.querySelector("#aiHealth");
 
     let roundText = document.createElement("p");
     let playerText = document.createElement("p");
@@ -34,13 +35,17 @@ function setupUI () {
     let scoreText = document.createElement("p");
     let finalText = document.createElement("h3");
     let playerHealthText = document.createElement("p");
+    let aiHealthText = document.createElement("p");
 
     container.append(roundText, playerText, computerText, resultText, scoreText, finalText);
 
-   playerHealthBar.append(playerHealthText);
+    playerHealth.append(playerHealthText);
+
+    aiHealth.append(aiHealthText);
 
     return {roundText, playerText, computerText, resultText, scoreText, finalText, 
-            playerPosition, aiPosition, playerHealthText};
+            playerPosition, aiPosition, 
+            playerHealthText, aiHealthText};
 };
 
 // Logic of one round
@@ -81,6 +86,8 @@ function playRound(playerSelection, computerSelection) {
     ui.scoreText.textContent = `Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`;
 
     ui.playerHealthText.textContent = `Health: ${humanScore}`;
+
+    ui.aiHealthText.textContent = `Health: ${computerScore}`;
 
 };
 
