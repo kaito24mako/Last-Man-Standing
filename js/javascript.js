@@ -23,8 +23,8 @@ function getComputerChoice() {
 // UI setup
 function setupUI () {
     let container = document.querySelector(".result");
-    let playerPosition = document.querySelector(".playerSelectionPlacehold");
-    let aiPosition = document.querySelector(".computerSelectionPlacehold"); 
+    let playerPosition = document.querySelector(".playerPosition");
+    let aiPosition = document.querySelector(".computerPosition"); 
 
     let roundText = document.createElement("p");
     let playerText = document.createElement("p");
@@ -43,16 +43,17 @@ function setupUI () {
 function playRound(playerSelection, computerSelection) {  
     ++round;
     
-    let playerImg = event.target.closest("button").querySelector("img");
-    let playerImgCopy = playerImg.cloneNode(true);
+    // selects the <button> with the same id as playerSelection, 
+    // then copies only the <img> inside that button
+    let playerImage = document.getElementById(playerSelection).querySelector("img");
+    let playerImageCopy = playerImage.cloneNode(true);
     ui.playerPosition.textContent = "";
-    ui.playerPosition.appendChild(playerImgCopy);
+    ui.playerPosition.appendChild(playerImageCopy);
 
-    let aiButton = document.getElementById(computerSelection);
-    let aiImg = aiButton.querySelector("img");
-    let aiImgCopy = aiImg.cloneNode(true);
+    let aiImage = document.getElementById(computerSelection).querySelector("img");
+    let aiImageCopy = aiImage.cloneNode(true);
     ui.aiPosition.textContent = ""; 
-    ui.aiPosition.appendChild(aiImgCopy);
+    ui.aiPosition.appendChild(aiImageCopy);
 
     ui.roundText.textContent = `****** Round ${round} FIGHT ******`;
     ui.playerText.textContent = `You used *${playerSelection}* `;
@@ -80,7 +81,7 @@ function playRound(playerSelection, computerSelection) {
 function handleClick(event) {
 
     // calls one round 
-    let playerSelection = event.target.id;
+    let playerSelection = event.target.closest("button").id;
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 

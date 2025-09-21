@@ -77,17 +77,17 @@ body {
     font-size: 19px;
 }
 
-/* Playfield - selection copy of img */
+/* Playfield - img copies of selected buttons */
 .player .name-selection {
     position: relative;
 }
-.playerSelectionPlacehold {
+.playerPosition {
     position: absolute;
     left: 70%;
     width: 60px;
     height: auto;
 }
-.playerSelectionPlacehold img {
+.playerPosition img {
     width: 120px;
     height: auto;
 }
@@ -95,11 +95,11 @@ body {
 .opponent .name-selection {
     position: relative;
 }
-.computerSelectionPlacehold {
+.computerPosition {
     position: absolute;
     right: 70%;
 }
-.computerSelectionPlacehold img {
+.computerPosition img {
     width: 120px;
     height: auto;
 }
