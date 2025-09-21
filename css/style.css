@@ -23,23 +23,29 @@ img, #enemy {
 
 /* General */
 main {
-    margin: 60px;
-    /* padding: 40px; */
+    margin: 60px 100px;
     border: 3px solid black;
     background-color: rgba(211, 211, 211, 0.521);
-    font-size: 18px;
+    font-size: 20px;
     color: rgb(80, 66, 35);
 }
 
 /* Header */
 .intro {
     background-color: rgb(209, 197, 197);
+    padding: 30px 0;
 }
-.intro .title {
+.title {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
 }
-.intro .instructions {
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
 
-}
+
