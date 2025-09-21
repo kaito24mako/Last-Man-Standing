@@ -13,7 +13,7 @@ img, #gladiator {
     height: auto;
 }
 img, #enemy {
-    width: 310px;
+    width: 290px;
     height: auto;
 }
 .buttons, img {
@@ -62,16 +62,13 @@ body {
 
    display: flex;
    justify-content: space-between;
+   align-items: center;
 }
-.player {
+.player, .opponent {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.opponent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 1;  /* grows and shrinks to fill available space */
 }
 
 /* Buttons */
