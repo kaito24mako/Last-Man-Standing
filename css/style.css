@@ -9,7 +9,7 @@ html {
 
 /* Images */
 img, #desert {
-    
+
 }
 img, #gladiator {
     width: 200px;
@@ -54,15 +54,18 @@ main {
 
 /* Playfield */
 .playfield {
-
+    position: relative;
+    width: 100%;
+    background-image: url("../img/desert.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
 }
-.container {
-  
-} 
 .player {
 
 }
-   
 .opponent {
 
 }
