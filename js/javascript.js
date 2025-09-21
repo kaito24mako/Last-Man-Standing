@@ -1,7 +1,7 @@
 // Variables
 let round = 0;
-let humanScore = 5;
-let computerScore = 5;
+let humanScore = 100;
+let computerScore = 100;
 let drawScore = 0;
 const buttons = document.querySelector(".buttons");
 const ui = setupUI();
@@ -72,7 +72,7 @@ function playRound(playerSelection, computerSelection) {
         playerSelection == "paper" && computerSelection == "rock" ||
         playerSelection == "scissors" && computerSelection == "paper") {
         ui.resultText.textContent = "You won the round!!";
-        ++humanScore;  
+        computerScore -= 20;
     }
     else if (playerSelection == computerSelection) {
         ui.resultText.textContent = "It is a draw.";
@@ -80,14 +80,14 @@ function playRound(playerSelection, computerSelection) {
     }
     else {
         ui.resultText.textContent = "You lost the round...";
-        ++computerScore;
+        humanScore -= 20;
     }
 
     ui.scoreText.textContent = `Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`;
 
-    ui.playerHealthText.textContent = `Health: ${humanScore}`;
+    ui.playerHealthText.textContent = `Health: ${humanScore}%`;
 
-    ui.aiHealthText.textContent = `Health: ${computerScore}`;
+    ui.aiHealthText.textContent = `Health: ${computerScore}%`;
 
 };
 
@@ -100,7 +100,7 @@ function handleClick(event) {
     playRound(playerSelection, computerSelection);
 
     // stops event 
-    if (humanScore === 5 || computerScore === 5) {
+    if (humanScore === 0 || computerScore === 0) {
         buttons.removeEventListener("click", handleClick);
         humanScore > computerScore 
         ? ui.finalText.textContent = "Congratulations! You emerge victorious!!"
