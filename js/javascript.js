@@ -25,6 +25,7 @@ function setupUI () {
     let container = document.querySelector(".result");
     let playerPosition = document.querySelector(".playerPosition");
     let aiPosition = document.querySelector(".computerPosition"); 
+    let playerHealthBar = document.querySelector("#playerHealth");
 
     let roundText = document.createElement("p");
     let playerText = document.createElement("p");
@@ -32,11 +33,14 @@ function setupUI () {
     let resultText = document.createElement("p");
     let scoreText = document.createElement("p");
     let finalText = document.createElement("h3");
+    let playerHealthText = document.createElement("p");
 
     container.append(roundText, playerText, computerText, resultText, scoreText, finalText);
 
+   playerHealthBar.append(playerHealthText);
+
     return {roundText, playerText, computerText, resultText, scoreText, finalText, 
-            playerPosition, aiPosition};
+            playerPosition, aiPosition, playerHealthText};
 };
 
 // Logic of one round
@@ -66,7 +70,7 @@ function playRound(playerSelection, computerSelection) {
         ++humanScore;  
     }
     else if (playerSelection == computerSelection) {
-        ui.resultText.textContent = "It is a draw~";
+        ui.resultText.textContent = "It is a draw.";
         ++drawScore;
     }
     else {
@@ -75,6 +79,9 @@ function playRound(playerSelection, computerSelection) {
     }
 
     ui.scoreText.textContent = `Your score: ${humanScore} | Opponent's score: ${computerScore} | Draw score: ${drawScore}`;
+
+    ui.playerHealthText.textContent = `Health: ${humanScore}`;
+
 };
 
 // Event Handler: what a click does 
