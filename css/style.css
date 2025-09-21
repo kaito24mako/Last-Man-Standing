@@ -60,17 +60,16 @@ body {
    padding: 0 60px;
    padding-top: 200px;
    padding-bottom: 80px;
-
+   
    display: flex;
-   justify-content: space-between;
-   align-items: center;
+   justify-content: center;
 }
 .player, .opponent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;  /* grows and shrinks to fill available space */
+    text-align: center;
+    flex: 1; 
+}
+.result {
+    text-align: center;
 }
 
 /* Buttons */
