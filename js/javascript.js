@@ -2,9 +2,14 @@
 let round = 0;
 let humanScore = 100;
 let computerScore = 100;
-let drawScore = 0;
+
 const buttons = document.querySelector(".buttons");
 const ui = setupUI();
+
+let playerHealth = document.querySelector("#playerHealth");
+let aiHealth = document.querySelector("#aiHealth");
+playerHealth.textContent = `Health: ${humanScore}%`;
+aiHealth.textContent = `Health: ${humanScore}%`;
 
 // Computer generates random number 
 function getComputerChoice() {
@@ -25,22 +30,16 @@ function setupUI () {
     let container = document.querySelector(".info");
     let playerPosition = document.querySelector(".playerPosition");
     let aiPosition = document.querySelector(".aiPosition"); 
-    let playerHealth = document.querySelector("#playerHealth");
-    let aiHealth = document.querySelector("#aiHealth");
 
     let roundText = document.createElement("p");
     let resultText = document.createElement("p");
     let finalText = document.createElement("h3");
-    let playerHealthText = document.createElement("p");
-    let aiHealthText = document.createElement("p");
 
     container.append(roundText, resultText, finalText);
-    playerHealth.append(playerHealthText);
-    aiHealth.append(aiHealthText);
-
+    
     return {roundText, resultText, finalText, 
             playerPosition, aiPosition, 
-            playerHealthText, aiHealthText};
+            };
 };
 
 // Logic of one round
@@ -59,9 +58,6 @@ function playRound(playerSelection, computerSelection) {
     ui.aiPosition.textContent = ""; 
     ui.aiPosition.appendChild(aiImageCopy);
 
-    ui.playerHealthText.textContent = `Health: ${humanScore}%`;
-    ui.aiHealthText.textContent = `Health: ${computerScore}%`;
-
     ui.roundText.textContent = `****** Round ${round} FIGHT ******`;
 
     if (playerSelection == "rock" && computerSelection == "scissors" ||
@@ -78,6 +74,9 @@ function playRound(playerSelection, computerSelection) {
         ui.resultText.textContent = "You lost the round...";
         humanScore -= 20;
     }
+
+    playerHealth.textContent = `Health: ${humanScore}%`;
+    aiHealth.textContent = `Health: ${computerScore}%`;
 };
 
 // Event Handler: what a click does 
