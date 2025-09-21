@@ -77,20 +77,31 @@ body {
     font-size: 19px;
 }
 
+/* Playfield - selection copy of img */
 .player .name-selection {
     position: relative;
 }
-.player .selection {
+.playerSelection {
     position: absolute;
     left: 70%;
+    width: 60px;
+    height: auto;
+}
+.playerSelection img {
+    width: 120px;
+    height: auto;
 }
 
 .opponent .name-selection {
     position: relative;
 }
-.opponent .selection {
+.computerSelection {
     position: absolute;
     right: 70%;
+}
+.playerSelection img {
+    width: 120px;
+    height: auto;
 }
 
 /* Buttons */

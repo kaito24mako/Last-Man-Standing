@@ -23,6 +23,8 @@ function getComputerChoice() {
 // UI setup
 function setupUI () {
     let container = document.querySelector(".result");
+    let playerSelectionCopy = document.querySelector(".playerSelection");
+    let computerSelectionCopy = document.querySelector(".computerSelection");
 
     let roundText = document.createElement("p");
     let playerText = document.createElement("p");
@@ -33,12 +35,19 @@ function setupUI () {
 
     container.append(roundText, playerText, computerText, resultText, scoreText, finalText);
 
-    return {roundText, playerText, computerText, resultText, scoreText, finalText};
+    return {roundText, playerText, computerText, resultText, scoreText, finalText, 
+            playerSelectionCopy, computerSelectionCopy};
 };
 
 // Logic of one round
 function playRound(playerSelection, computerSelection) {  
     ++round;
+    
+    let selectedImg = event.target.closest("button").querySelector("img");
+    let copyImg = selectedImg.cloneNode(true);
+    ui.playerSelectionCopy.textContent = "";
+    ui.playerSelectionCopy.appendChild(copyImg);
+    
     ui.roundText.textContent = `****** Round ${round} FIGHT ******`;
     ui.playerText.textContent = `You used *${playerSelection}* `;
     ui.computerText.textContent = `Your opponent used *${computerSelection}* `;
