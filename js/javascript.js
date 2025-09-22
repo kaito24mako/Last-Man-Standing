@@ -32,13 +32,12 @@ aiHealth.textContent = `Health: ${humanScore}%`;
 function setupUI () {
     let playerPosition = document.querySelector(".playerPosition");
     let aiPosition = document.querySelector(".aiPosition"); 
+    let resetButton = document.querySelector("#reset");
 
     let resultText = document.createElement("p");
     let finalText = document.createElement("h3");
-    let resetButton = document.createElement("button");
 
     infoContainer.append(resultText, finalText, resetButton);
-    
     return {resultText, finalText, resetButton, playerPosition, aiPosition};
 };
 
@@ -80,6 +79,7 @@ function playRound(playerSelection, computerSelection) {
     roundText.textContent = `****** Round ${round} FIGHT ******`;
 
     switch (playerSelection + computerSelection) {
+
         // win condition
         case "rockscissors":
             ui.resultText.textContent = "Your PUNCH smashed the enemy!";
@@ -117,12 +117,7 @@ function playRound(playerSelection, computerSelection) {
     aiHealth.textContent = `Health: ${computerScore}%`;
 };
 
-// Reset function 
- function resetGame() {
-    window.location.reload();
-}
-
-// Event Handler: what a click does 
+// What a button click does
 function buttonClick(event) {
 
     // calls one round 
@@ -136,14 +131,19 @@ function buttonClick(event) {
         humanScore > computerScore 
         ?   (ui.finalText.textContent = "You emerge victorious, gladiator!",
             audio.victorySound.play(),
-            ui.resetButton.textContent = "Reset")
+            ui.resetButton.textContent = "Play Again")
         :   (ui.finalText.textContent = "You have been defeated. Will you enter The Arena once more?",
             audio.lostSound.play(),
-            ui.resetButton.textContent = "Reset")
+            ui.resetButton.textContent = "Play Again")
     }
 };
 
-// Event Listener: calls Event Handler per click
+// What the reset button does
+ function resetGame() {
+    window.location.reload();
+}
+
+// Event Listener: calls function per click
 buttons.addEventListener("click", buttonClick);
 
 ui.resetButton.addEventListener("click", resetGame);
