@@ -1,0 +1,133 @@
+/* Reset */
+html {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Images */
+.player img {
+    width: 260px;
+}
+.opponent img {
+    width: 300px;
+}
+.buttons img {
+    width: 140px;
+    height: auto;
+}
+
+/* General */
+body {
+    border: 0.5px solid black;
+    font-size: 22px;
+    color: black;
+    overflow-x: hidden;
+
+    background-image: url("../img/desert.jpg");
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Header */
+.intro {
+   padding-top: 150px;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    font-family: "IM Fell Great Primer", serif;
+}
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: "IM Fell French Canon", serif;
+    font-style: italic;
+    font-size: 22px;
+}
+
+/* Playfield */
+.playfield {
+   display: flex;
+   justify-content: center;
+   padding: 0 60px;
+   padding-top: 200px;
+   padding-bottom: 80px;
+}
+.info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 23px;
+  gap: 60px;
+  font-weight: bold;
+  font-family: "IM Fell Great Primer", serif;
+}
+.player, .opponent {
+    text-align: center;
+    flex: 1; 
+    font-size: 18px;
+}
+#playerHealth, #aiHealth {
+    border: 1.5px solid black;
+    border-radius: 30px;
+    padding: 5px 15px;
+    background-color: rgba(243, 41, 41, 0.747);
+    width: fit-content;
+    margin: 0 auto;
+}
+#playerHealth {
+    background-color: rgba(26, 117, 221, 0.842);
+}
+
+/* Playfield - copies of selected buttons */
+.name-selection {
+    position: relative;
+}
+.playerPosition {
+    position: absolute;
+    left: 70%;
+}
+.playerPosition img {
+    width: 110px;
+    height: auto;
+}
+.aiPosition {
+    position: absolute;
+    right: 70%;
+}
+.aiPosition img {
+    width: 110px;
+    height: auto;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    background-color: rgba(197, 194, 189, 0.212);
+    border-radius: 10px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 60px;
+}
+button#reset {
+    display: none;
+    padding: 8px;
+    background-color: rgba(233, 230, 225, 0.568);
+    font-size: 17px;
+    font-family: inherit;
+}
+

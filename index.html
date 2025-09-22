@@ -3,28 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Arena: Rock, Paper, Scissors</title>
+    <title>Last Man Standing</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<main>
+    <!-- <a href="https://kaito24mako.github.io/personal-portfolio/">
+        <img src="./img/logo-black.png" class="logo"></a>  -->
     <header class="intro">
-        <h1>The Arena: Rock, Paper, Scissors</h1>
-        <p>WELCOME TO THE ARENA!</p>
-        <p>The first to five points WINS.</p>
-        <p>Choose your move: Rock, Paper, or Scissors?</p>
+        <div class="title">
+            <h1>Last Man Standing</h1>
+        </div>
+        <div class="instructions">
+            <p>Defeat your opponent.</p>
+            <p>Successful attack = damage to 20% of total health.</p>
+            <p>Good luck, gladiator.</p>
+        </div>
     </header>
 
-    <section class="buttons">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-    </section>
+    <div class="playfield">
+        <div class="player">
+            <div class="name-selection">
+                <div id="name"><em>Gladiator</em></div>
+                <div class="playerPosition"></div>
+            </div>
+            <img id="gladiator" src="./img/gladiator.png" alt="A gladiator standing firm">
+            <div id="playerHealth"></div>
+        </div>
+        
+        <div class="info">
+            <button id="reset"></button>
+        </div>
 
-    <div class="result"></div>
+        <div class="opponent">
+            <div class="name-selection">
+                <div id="name"><em>Opponent</em></div>
+                <div class="aiPosition"></div>
+            </div>
+            <img id="enemy" src="./img/enemy.png" alt="The enemy fighter taunting with sword">
+            <div id="aiHealth"></div>
+        </div>
+    </div>  
 
-</main>
-    <script src="./javascript.js" defer></script>
+    <div class="buttons">
+        <button id="rock"><img src="./img/punch.png"></button>
+        <button id="paper"><img src="./img/slap.png"></button>
+        <button id="scissors"><img src="./img/cut.png"></button>
+    </div>
+
+    <script src="./js/javascript.js" defer></script>
 </body>
 
 </html>
