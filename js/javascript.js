@@ -33,17 +33,28 @@ function setupUI () {
     let playerPosition = document.querySelector(".playerPosition");
     let aiPosition = document.querySelector(".aiPosition"); 
 
-   /* let roundText = document.createElement("p"); */
     let resultText = document.createElement("p");
     let finalText = document.createElement("h3");
 
     infoContainer.append(resultText, finalText);
     
-    return {resultText, finalText, 
-            playerPosition, aiPosition};
+    return {resultText, finalText, playerPosition, aiPosition};
 };
 
 const ui = setupUI();
+
+// Audio setup
+function setupAudio () {
+    const fightSound = new Audio("../audio/fight.mp3");
+    const gruntSound = new Audio("../audio/grunt.mp3");
+    const punchSound = new Audio("../audio/punch.mp3");
+    const slapSound = new Audio("../audio/slap.mp3");
+    const cutSound = new Audio("../audio/cut.mp3");
+
+    return {fightSound, gruntSound, punchSound, slapSound, cutSound};
+};
+
+const audio = setupAudio();
 
 // Logic of one round
 function playRound(playerSelection, computerSelection) {  
@@ -75,6 +86,7 @@ function playRound(playerSelection, computerSelection) {
     else {
         ui.resultText.textContent = "You lost the round...";
         humanScore -= 20;
+        audio.gruntSound.play();
     }
 
     playerHealth.textContent = `Health: ${humanScore}%`;
