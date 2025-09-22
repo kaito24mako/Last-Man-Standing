@@ -47,11 +47,12 @@ const ui = setupUI();
 function setupAudio () {
     const fightSound = new Audio("../audio/fight.mp3");
     const gruntSound = new Audio("../audio/grunt.mp3");
+    const blockSound = new Audio("../audio/block.mp3");
     const punchSound = new Audio("../audio/punch.mp3");
     const slapSound = new Audio("../audio/slap.mp3");
     const cutSound = new Audio("../audio/cut.mp3");
 
-    return {fightSound, gruntSound, punchSound, slapSound, cutSound};
+    return {fightSound, gruntSound, blockSound, punchSound, slapSound, cutSound};
 };
 
 const audio = setupAudio();
@@ -74,19 +75,38 @@ function playRound(playerSelection, computerSelection) {
 
     roundText.textContent = `****** Round ${round} FIGHT ******`;
 
-    if (playerSelection == "rock" && computerSelection == "scissors" ||
-        playerSelection == "paper" && computerSelection == "rock" ||
-        playerSelection == "scissors" && computerSelection == "paper") {
-        ui.resultText.textContent = "You won the round!!";
-        computerScore -= 20;
-    }
-    else if (playerSelection == computerSelection) {
-        ui.resultText.textContent = "It is a draw.";
-    }
-    else {
-        ui.resultText.textContent = "You lost the round...";
-        humanScore -= 20;
-        audio.gruntSound.play();
+    switch (playerSelection + computerSelection) {
+        // win condition
+        case "rockscissors":
+            ui.resultText.textContent = "Your PUNCH smashed the enemy!";
+            audio.punchSound.play();
+            computerScore -= 20;
+            break;
+        case "paperrock":
+            ui.resultText.textContent = "Your SLAP dazed the enemy!";
+            audio.slapSound.play();
+            computerScore -= 20;
+            break;
+        case "scissorspaper":
+            ui.resultText.textContent = "You SLICED the enemy clean!";
+            audio.cutSound.play();
+            computerScore -= 20;
+            break;
+
+        // draw condition
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+            ui.resultText.textContent = "Both attacks negated one another."
+            audio.blockSound.play();
+            break;
+
+        // loss condition 
+        default:
+            ui.resultText.textContent = "The enemy attacked you..."
+            audio.gruntSound.play();
+            humanScore -= 20;
+            break;
     }
 
     playerHealth.textContent = `Health: ${humanScore}%`;
