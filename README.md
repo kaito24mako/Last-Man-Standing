@@ -3,6 +3,9 @@ This is a project given by The Odin Project in which I create a game of Rock, Pa
 
 <br>I hope you enjoy the game!
 
+<br> GitHub repo: https://github.com/kaito24mako/Last-Man-Standing-Game/deployments/github-pages
+<br> Live preview: https://kaito24mako.github.io/Last-Man-Standing-Game/
+
 <br>Credit to:
 <li><a href="https://pics.freeartbackgrounds.com/Desert_Background-1162.jpg" title="desert background">Desert image source from Free Backgrounds</a>
 <li><a href="https://pngtree.com/freepng/cartoon-doodle-punching-fist_15955448.html" title="punch icon">Punch icon sourced from pngTree</a> 
