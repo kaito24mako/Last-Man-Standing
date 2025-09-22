@@ -10,11 +10,9 @@ html {
 /* Images */
 .player img {
     width: 260px;
-  
 }
 .opponent img {
     width: 300px;
-   
 }
 .buttons img {
     width: 140px;
@@ -25,7 +23,6 @@ html {
 body {
     border: 0.5px solid black;
     font-size: 22px;
-    /* color: rgb(80, 66, 35); */
     color: black;
     overflow-x: hidden;
 
@@ -86,28 +83,24 @@ body {
     background-color: rgba(243, 41, 41, 0.747);
     width: fit-content;
     margin: 0 auto;
+    font-weight: 600;
+    font-size: 17px;
 }
 #playerHealth {
     background-color: rgba(26, 117, 221, 0.842);
 }
 
-/* Playfield - img copies of selected buttons */
-.player .name-selection {
+/* Playfield - copies of selected buttons */
+.name-selection {
     position: relative;
 }
 .playerPosition {
     position: absolute;
     left: 70%;
-    width: 60px;
-    height: auto;
 }
 .playerPosition img {
     width: 120px;
     height: auto;
-}
-
-.opponent .name-selection {
-    position: relative;
 }
 .aiPosition {
     position: absolute;

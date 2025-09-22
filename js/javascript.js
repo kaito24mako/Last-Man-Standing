@@ -112,7 +112,6 @@ function playRound(playerSelection, computerSelection) {
             humanScore -= 20;
             break;
     }
-
     playerHealth.textContent = `Health: ${humanScore}%`;
     aiHealth.textContent = `Health: ${computerScore}%`;
 };
