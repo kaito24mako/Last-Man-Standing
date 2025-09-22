@@ -51,8 +51,11 @@ function setupAudio () {
     const punchSound = new Audio("../audio/punch.mp3");
     const slapSound = new Audio("../audio/slap.mp3");
     const cutSound = new Audio("../audio/cut.mp3");
+    const victorySound = new Audio("../audio/victory.mp3");
+    const lostSound = new Audio("../audio/lost.mp3");
 
-    return {fightSound, gruntSound, blockSound, punchSound, slapSound, cutSound};
+    return {fightSound, gruntSound, blockSound, punchSound, slapSound, cutSound,
+            victorySound, lostSound};
 };
 
 const audio = setupAudio();
@@ -125,8 +128,10 @@ function handleClick(event) {
     if (humanScore === 0 || computerScore === 0) {
         buttons.removeEventListener("click", handleClick);
         humanScore > computerScore 
-        ? ui.finalText.textContent = "Congratulations! You emerge victorious!!"
-        : ui.finalText.textContent = "Oh no...You have been defeated. Will you enter The Arena once more?";
+        ?   (ui.finalText.textContent = "You emerge victorious, gladiator!",
+            audio.victorySound.play())
+        :   (ui.finalText.textContent = "You have been defeated. Will you enter The Arena once more?",
+            audio.lostSound.play())
     }
 };
 
