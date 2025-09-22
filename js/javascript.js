@@ -76,7 +76,7 @@ function playRound(playerSelection, computerSelection) {
     ui.aiPosition.textContent = ""; 
     ui.aiPosition.appendChild(aiImageCopy);
 
-    roundText.textContent = `****** Round ${round} FIGHT ******`;
+    roundText.textContent = `********** Round ${round} **********`;
 
     switch (playerSelection + computerSelection) {
 
