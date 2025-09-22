@@ -2,14 +2,7 @@
 let round = 0;
 let humanScore = 100;
 let computerScore = 100;
-
 const buttons = document.querySelector(".buttons");
-const ui = setupUI();
-
-let playerHealth = document.querySelector("#playerHealth");
-let aiHealth = document.querySelector("#aiHealth");
-playerHealth.textContent = `Health: ${humanScore}%`;
-aiHealth.textContent = `Health: ${humanScore}%`;
 
 // Computer generates random number 
 function getComputerChoice() {
@@ -26,21 +19,31 @@ function getComputerChoice() {
 };
 
 // UI setup
+let infoContainer = document.querySelector(".info");
+let roundText = document.createElement("p");
+infoContainer.appendChild(roundText);
+roundText.textContent = "Choose your attack from below...";
+
+let playerHealth = document.querySelector("#playerHealth");
+let aiHealth = document.querySelector("#aiHealth");
+playerHealth.textContent = `Health: ${humanScore}%`;
+aiHealth.textContent = `Health: ${humanScore}%`;
+
 function setupUI () {
-    let container = document.querySelector(".info");
     let playerPosition = document.querySelector(".playerPosition");
     let aiPosition = document.querySelector(".aiPosition"); 
 
-    let roundText = document.createElement("p");
+   /* let roundText = document.createElement("p"); */
     let resultText = document.createElement("p");
     let finalText = document.createElement("h3");
 
-    container.append(roundText, resultText, finalText);
+    infoContainer.append(resultText, finalText);
     
-    return {roundText, resultText, finalText, 
-            playerPosition, aiPosition, 
-            };
+    return {resultText, finalText, 
+            playerPosition, aiPosition};
 };
+
+const ui = setupUI();
 
 // Logic of one round
 function playRound(playerSelection, computerSelection) {  
@@ -58,7 +61,7 @@ function playRound(playerSelection, computerSelection) {
     ui.aiPosition.textContent = ""; 
     ui.aiPosition.appendChild(aiImageCopy);
 
-    ui.roundText.textContent = `****** Round ${round} FIGHT ******`;
+    roundText.textContent = `****** Round ${round} FIGHT ******`;
 
     if (playerSelection == "rock" && computerSelection == "scissors" ||
         playerSelection == "paper" && computerSelection == "rock" ||
@@ -68,7 +71,6 @@ function playRound(playerSelection, computerSelection) {
     }
     else if (playerSelection == computerSelection) {
         ui.resultText.textContent = "It is a draw.";
-        ++drawScore;
     }
     else {
         ui.resultText.textContent = "You lost the round...";
