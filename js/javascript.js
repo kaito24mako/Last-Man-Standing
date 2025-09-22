@@ -35,10 +35,11 @@ function setupUI () {
 
     let resultText = document.createElement("p");
     let finalText = document.createElement("h3");
+    let resetButton = document.createElement("button");
 
-    infoContainer.append(resultText, finalText);
+    infoContainer.append(resultText, finalText, resetButton);
     
-    return {resultText, finalText, playerPosition, aiPosition};
+    return {resultText, finalText, resetButton, playerPosition, aiPosition};
 };
 
 const ui = setupUI();
@@ -116,8 +117,13 @@ function playRound(playerSelection, computerSelection) {
     aiHealth.textContent = `Health: ${computerScore}%`;
 };
 
+// Reset function 
+ function resetGame() {
+    window.location.reload();
+}
+
 // Event Handler: what a click does 
-function handleClick(event) {
+function buttonClick(event) {
 
     // calls one round 
     let playerSelection = event.target.closest("button").id;
@@ -126,14 +132,18 @@ function handleClick(event) {
 
     // stops event 
     if (humanScore === 0 || computerScore === 0) {
-        buttons.removeEventListener("click", handleClick);
+        buttons.removeEventListener("click", buttonClick);
         humanScore > computerScore 
         ?   (ui.finalText.textContent = "You emerge victorious, gladiator!",
-            audio.victorySound.play())
+            audio.victorySound.play(),
+            ui.resetButton.textContent = "Reset")
         :   (ui.finalText.textContent = "You have been defeated. Will you enter The Arena once more?",
-            audio.lostSound.play())
+            audio.lostSound.play(),
+            ui.resetButton.textContent = "Reset")
     }
 };
 
 // Event Listener: calls Event Handler per click
-buttons.addEventListener("click", handleClick);
+buttons.addEventListener("click", buttonClick);
+
+ui.resetButton.addEventListener("click", resetGame);
