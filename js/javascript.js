@@ -45,14 +45,14 @@ const ui = setupUI();
 
 // Audio setup
 function setupAudio () {
-    const fightSound = new Audio("./audio/fight.mp3");
-    const gruntSound = new Audio("./audio/grunt.mp3");
-    const blockSound = new Audio("./audio/block.mp3");
-    const punchSound = new Audio("./audio/punch.mp3");
-    const slapSound = new Audio("./audio/slap.mp3");
-    const cutSound = new Audio("./audio/cut.mp3");
-    const victorySound = new Audio("./audio/victory.mp3");
-    const lostSound = new Audio("./audio/lost.mp3");
+    const fightSound = new Audio("../audio/fight.mp3");
+    const gruntSound = new Audio("../audio/grunt.mp3");
+    const blockSound = new Audio("../audio/block.mp3");
+    const punchSound = new Audio("../audio/punch.mp3");
+    const slapSound = new Audio("../audio/slap.mp3");
+    const cutSound = new Audio("../audio/cut.mp3");
+    const victorySound = new Audio("../audio/victory.mp3");
+    const lostSound = new Audio("../audio/lost.mp3");
 
     return {fightSound, gruntSound, blockSound, punchSound, slapSound, cutSound,
             victorySound, lostSound};
