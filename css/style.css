@@ -83,8 +83,6 @@ body {
     background-color: rgba(243, 41, 41, 0.747);
     width: fit-content;
     margin: 0 auto;
-    font-weight: 600;
-    font-size: 17px;
 }
 #playerHealth {
     background-color: rgba(26, 117, 221, 0.842);
