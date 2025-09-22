@@ -128,4 +128,11 @@ button {
     gap: 80px;
     margin-bottom: 60px;
 }
+button#reset {
+    display: none;
+    padding: 8px;
+    background-color: rgba(233, 230, 225, 0.568);
+    font-size: 17px;
+    font-family: inherit;
+}
 
