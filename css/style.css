@@ -24,11 +24,11 @@ body {
     border: 0.5px solid black;
     font-size: 22px;
     color: black;
-    overflow-x: hidden;
+    overflow: hidden;
 
+    height: 100vh;
     background-image: url("../img/desert.jpg");
     position: relative;
-    width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
