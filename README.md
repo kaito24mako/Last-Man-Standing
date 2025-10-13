@@ -1,7 +1,19 @@
 # Last Man Standing: Rock, Paper, Scissors Game
 This is a project given by The Odin Project in which I create a game of Rock, Paper, Scissors using my foundational knowledge of JavaScript.
 
-<br>I hope you enjoy the game!
+<br> GitHub repo: https://github.com/kaito24mako/Last-Man-Standing-Game/deployments/github-pages
+<br> Live preview: https://kaito24mako.github.io/Last-Man-Standing/
+
+<br> Skills I utilised and learned:
+<li>HTML structuring
+<li>CSS basic styling
+<li>Flexbox (without media responsiveness)
+<li>Storing and positioning a background image
+<li>Basic creation, appending, and styling of DOM elements
+<Li>Creating event handlers and listeners
+<li>Using event.target.id to specify specific points of event functions
+<li>Cloning images that were clicked on
+<li>Adding audio to event handlers
 
 <br>Credit to:
 <li><a href="https://pics.freeartbackgrounds.com/Desert_Background-1162.jpg" title="desert background">Desert image source from Free Backgrounds</a>
