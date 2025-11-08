@@ -56,26 +56,13 @@ function setupAudio () {
     return {gruntSound, blockSound, punchSound, slapSound, cutSound,
             victorySound, lostSound};
 };
-
 const audio = setupAudio();
 
 // Logic of one round
 function playRound(playerSelection, computerSelection) {  
     ++round;
-    
-    // selects the <button> with the same id as playerSelection, 
-    // then copies only the <img> inside that button
-    let playerImage = document.getElementById(playerSelection).querySelector("img");
-    let playerImageCopy = playerImage.cloneNode(true);
-    ui.playerPosition.textContent = "";
-    ui.playerPosition.appendChild(playerImageCopy);
 
-    let aiImage = document.getElementById(computerSelection).querySelector("img");
-    let aiImageCopy = aiImage.cloneNode(true);
-    ui.aiPosition.textContent = ""; 
-    ui.aiPosition.appendChild(aiImageCopy);
-
-    roundText.textContent = `********** Round ${round} **********`;
+    roundText.textContent = `\\ Round ${round} /`;
 
     switch (playerSelection + computerSelection) {
 
